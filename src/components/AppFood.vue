@@ -43,7 +43,9 @@ export default {
                 labels: ['Kcal Carbo', 'Kcal Protein', 'Kcal Fats'],
                 datasets: [
                     {
+                        label: 'Calories:',
                         backgroundColor: ['#41B883', '#c9c948', '#6272ef'],
+                        borderColor: 'rgb(255, 255, 255, 0.2)',
                         data: [(store.myFood.dataAPI.nutrients.CHOCDF * 4), (store.myFood.dataAPI.nutrients.PROCNT * 9), (store.myFood.dataAPI.nutrients.FAT * 9)]
                     }
                 ]
