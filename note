@@ -1,0 +1,15 @@
+1. calcolatore fabbisogno calorico giornaliero
+2. calcolatore fasi -700kcal, -500kcal, -300, 0, +200
+3. display none per calcolatori, display on per pagina calcolatori di calorie a cibo
+4. cerca food da API, prendi il valore calorie x100gr o per 100kcal, dividi e addiiona al conto totale giornaliero
+5. agggiugi conto totale macro nutrineti
+6. aggiungi conto totale vitamine, sali minerali e omega3-6
+7. Integratori
+
+
+
+
+
+x. Calendar - plans over the weeks and months
+x. Interactive calendar - add on your day avaible calories based on your calendar
+x. cheat - if you eat something too much add the to catch up tomorror(take from the calories of tomorrow off) or spread it in 2-3 days
