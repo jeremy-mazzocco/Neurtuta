@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import {
     Chart as ChartJS,
     ArcElement,
@@ -17,7 +17,6 @@ export default {
         Doughnut
     },
     computed: {
-
         // chart in calories
         chartDataCal() {
             return {

@@ -34,7 +34,8 @@ export const store = reactive({
                 PROCNT: 0,
                 FAT: 0,
                 FIBTG: 0
-            }
+            },
+            image: ''
         }
     }
 })
