@@ -21,17 +21,20 @@ export default {
 
             <nav>
                 <ul>
-                    <a href="#">
-                        <li>You</li>
+                    <a href="#" @click="$emit('changePageMe')">
+                        <li>Me</li>
                     </a>
-                    <a href="#">
+
+                    <a href="#" @click="$emit('changePageFood')">
                         <li>Food</li>
                     </a>
-                    <a href="#">
-                        <li>Data</li>
+
+                    <a href="#" @click="$emit('changePageGraph')">
+                        <li>Graph</li>
                     </a>
                 </ul>
             </nav>
+
 
         </section>
     </header>
