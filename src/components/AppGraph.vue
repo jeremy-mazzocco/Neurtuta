@@ -37,24 +37,6 @@ export default {
             }
         },
 
-        // chart in grams
-        // chartDataGrams() {
-        //     return {
-        //         labels: ['Carbo', 'Protein', 'Fats'],
-        //         datasets: [
-        //             {
-        //                 backgroundColor: ['#41B883', '#c9c948', '#6272ef'],
-        //                 data: [store.myData.carboDay, store.myData.proteinDay, store.myData.fatsDay]
-        //             }
-        //         ]
-        //     }
-        // },
-        // chartOptionsGrams() {
-        //     return {
-        //         responsive: true,
-        //         maintainAspectRatio: false
-        //     }
-        // }
     },
     data() {
         return {
@@ -66,13 +48,19 @@ export default {
 
 <template>
     <section>
+
+        <div>
+            GRAPH
+        </div>
         <div class="chart">
             <Doughnut :data="chartDataCal" :options="chartOptionsCal" />
         </div>
-        <!-- <div class="chart">
-            <Doughnut :data="chartDataGrams" :options="chartOptionsGrams" />
-        </div> -->
     </section>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+section {
+    height: 400px;
+    border: 1px solid salmon;
+}
+</style>

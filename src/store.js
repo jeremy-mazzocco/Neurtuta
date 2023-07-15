@@ -27,7 +27,15 @@ export const store = reactive({
     },
     myFood: {
         mealCalories: 0,
-        dataAPI: ''
+        dataAPI: {
+            nutrients: {
+                ENERC_KCAL: 0,
+                CHOCDF: 0,
+                PROCNT: 0,
+                FAT: 0,
+                FIBTG: 0
+            }
+        }
     }
 })
 
