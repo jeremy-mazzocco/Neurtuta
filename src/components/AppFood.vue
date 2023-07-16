@@ -34,21 +34,31 @@ export default {
                     console.log(err);
                 });
         },
-        calulateCaloriesFood() {
+        calculateCaloriesFood() {
             store.calculatedFoodCalories = Math.floor(store.foodQuantity / 100 * store.myFood.dataAPI.nutrients.ENERC_KCAL)
         },
-        calulateGramsFood() {
+        calculateGramsFood() {
             store.calculatedFoodGrams = Math.floor((100 * store.caloriesQuantity) / store.myFood.dataAPI.nutrients.ENERC_KCAL)
         },
+        add1grams() {
+            store.foodQuantity = parseInt(store.foodQuantity) + 1;
+        },
+        add10grams() {
+            store.foodQuantity = parseInt(store.foodQuantity) + 10;
+        },
+        add100grams() {
+            store.foodQuantity = parseInt(store.foodQuantity) + 100;
+        },
         add1kcal() {
-            store.caloriesQuantity += 1;
+            store.caloriesQuantity = parseInt(store.caloriesQuantity) + 1;
         },
         add10kcal() {
-            store.caloriesQuantity += 10;
+            store.caloriesQuantity = parseInt(store.caloriesQuantity) + 10;
         },
         add100kcal() {
-            store.caloriesQuantity += 100;
-        }
+            store.caloriesQuantity = parseInt(store.caloriesQuantity) + 100;
+        },
+
     },
     computed: {
         // chart in calories
@@ -105,9 +115,18 @@ export default {
         </div>
         <div>
             <h5>Insert the grams to se the kcal</h5>
-            <input type="text" v-model="store.foodQuantity" @keyup.enter="calulateCaloriesFood">
-            <button @click="(calulateCaloriesFood)">
+            <input type="text" v-model="store.foodQuantity" @keyup.enter="calculateCaloriesFood">
+            <button @click="(calculateCaloriesFood)">
                 Search
+            </button>
+            <button @click="(add1grams)">
+                +1
+            </button>
+            <button @click="(add10grams)">
+                +10
+            </button>
+            <button @click="(add100grams)">
+                +100
             </button>
             <div>
                 {{ store.calculatedFoodCalories }} Kcal
@@ -115,8 +134,8 @@ export default {
         </div>
         <div>
             <h5>Insert the kcal to see the grams</h5>
-            <input type="text" v-model="store.caloriesQuantity" @keyup.enter="calulateGramsFood">
-            <button @click="(calulateGramsFood)">
+            <input type="text" v-model="store.caloriesQuantity" @keyup.enter="calculateGramsFood">
+            <button @click="(calculateGramsFood)">
                 Search
             </button>
             <button @click="(add1kcal)">
