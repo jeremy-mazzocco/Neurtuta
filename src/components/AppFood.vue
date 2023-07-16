@@ -23,8 +23,6 @@ export default {
         }
     },
     methods: {
-
-
         searchFoodAPI() {
             axios.get(`http://api.edamam.com/api/food-database/v2/parser?app_id=663fa592&app_key=dd7f0a5ba437a993dcd7b477a059209f&ingr=${store.searchValue}&nutrition-type=cooking`)
                 .then(response => {
@@ -35,7 +33,13 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
-        }
+        },
+        calulateCaloriesFood() {
+            store.calculatedFoodCalories = Math.floor(store.foodQuantity / 100 * store.myFood.dataAPI.nutrients.ENERC_KCAL)
+        },
+        calulateGramsFood() {
+            store.calculatedFoodGrams = Math.floor((100 * store.caloriesQuantity) / store.myFood.dataAPI.nutrients.ENERC_KCAL)
+        },
     },
     computed: {
         // chart in calories
@@ -83,10 +87,30 @@ export default {
                 <Doughnut :data="chartDataCal" :options="chartOptionsCal" />
             </div>
         </div>
-        <input type="text" v-model="store.searchValue" @keyup.enter="searchFoodAPI">
+        <input type="text" v-model="store.searchValue" @keyup.enter="searchFoodAPI" placeholder="insert the food">
         <button @click="(searchFoodAPI)">
             Search
         </button>
+        <div>
+            <h5>Insert the grams to se the kcal</h5>
+            <input type="text" v-model="store.foodQuantity" @keyup.enter="calulateCaloriesFood">
+            <button @click="(calulateCaloriesFood)">
+                Search
+            </button>
+            <div>
+                {{ store.calculatedFoodCalories }} Kcal
+            </div>
+        </div>
+        <div>
+            <h5>Insert the kcal to see the grams</h5>
+            <input type="text" v-model="store.caloriesQuantity" @keyup.enter="calulateGramsFood">
+            <button @click="(calulateGramsFood)">
+                Search
+            </button>
+            <div>
+                {{ store.calculatedFoodGrams }} grams
+            </div>
+        </div>
     </section>
 </template>
 

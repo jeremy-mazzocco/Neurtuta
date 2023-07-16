@@ -38,7 +38,11 @@ export const store = reactive({
             image: ''
         }
     },
-    searchValue: ''
+    searchValue: '',
+    foodQuantity: 0,
+    calculatedFoodCalories: 0,
+    caloriesQuantity: 0,
+    calculatedFoodGrams: 0
 
 })
 
