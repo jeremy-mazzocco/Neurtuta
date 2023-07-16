@@ -40,6 +40,15 @@ export default {
         calulateGramsFood() {
             store.calculatedFoodGrams = Math.floor((100 * store.caloriesQuantity) / store.myFood.dataAPI.nutrients.ENERC_KCAL)
         },
+        add1kcal() {
+            store.caloriesQuantity += 1;
+        },
+        add10kcal() {
+            store.caloriesQuantity += 10;
+        },
+        add100kcal() {
+            store.caloriesQuantity += 100;
+        }
     },
     computed: {
         // chart in calories
@@ -87,10 +96,13 @@ export default {
                 <Doughnut :data="chartDataCal" :options="chartOptionsCal" />
             </div>
         </div>
-        <input type="text" v-model="store.searchValue" @keyup.enter="searchFoodAPI" placeholder="insert the food">
-        <button @click="(searchFoodAPI)">
-            Search
-        </button>
+        <div>
+            <h5>Insert the food you want</h5>
+            <input type="text" v-model="store.searchValue" @keyup.enter="searchFoodAPI" placeholder="insert the food">
+            <button @click="(searchFoodAPI)">
+                Search
+            </button>
+        </div>
         <div>
             <h5>Insert the grams to se the kcal</h5>
             <input type="text" v-model="store.foodQuantity" @keyup.enter="calulateCaloriesFood">
@@ -106,6 +118,15 @@ export default {
             <input type="text" v-model="store.caloriesQuantity" @keyup.enter="calulateGramsFood">
             <button @click="(calulateGramsFood)">
                 Search
+            </button>
+            <button @click="(add1kcal)">
+                +1
+            </button>
+            <button @click="(add10kcal)">
+                +10
+            </button>
+            <button @click="(add100kcal)">
+                +100
             </button>
             <div>
                 {{ store.calculatedFoodGrams }} grams
