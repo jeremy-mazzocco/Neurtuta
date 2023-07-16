@@ -1,5 +1,5 @@
-// module.exports = {
-//     devServer: {
-//         proxy: 'http://localhost:5175/'
-//     }
-// }
+module.exports = {
+    devServer: {
+        proxy: 'http://api.edamam.com/'
+    }
+}

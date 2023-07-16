@@ -23,11 +23,12 @@ export default {
         }
     },
     methods: {
+
+
         searchFoodAPI() {
-            axios.get('http://api.edamam.com/api/food-database/v2/parser?app_id=663fa592&app_key=dd7f0a5ba437a993dcd7b477a059209f&ingr=carrot&nutrition-type=cooking')
+            axios.get(`http://api.edamam.com/api/food-database/v2/parser?app_id=663fa592&app_key=dd7f0a5ba437a993dcd7b477a059209f&ingr=${store.searchValue}&nutrition-type=cooking`)
                 .then(response => {
                     store.myFood.dataAPI = response.data.hints[0].food;
-
                     console.log(store.myFood.dataAPI = response.data.hints[0].food);
 
                 })
@@ -82,12 +83,13 @@ export default {
                 <Doughnut :data="chartDataCal" :options="chartOptionsCal" />
             </div>
         </div>
-
+        <input type="text" v-model="store.searchValue" @keyup.enter="searchFoodAPI">
         <button @click="(searchFoodAPI)">
             Search
         </button>
     </section>
 </template>
+
 
 <style lang="scss" scoped>
 section {
@@ -96,7 +98,6 @@ section {
 
 .row {
     display: flex;
-
 }
 
 .text {

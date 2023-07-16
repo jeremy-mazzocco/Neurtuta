@@ -37,6 +37,8 @@ export const store = reactive({
             },
             image: ''
         }
-    }
+    },
+    searchValue: ''
+
 })
 
